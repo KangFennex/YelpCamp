@@ -1,0 +1,8 @@
+- Express Middlewares
+- Express error handling
+- Joi - data validator for Javascript
+- Mongoose
+- Cookies
+- Authentification/Authorization(through middlewares)
+- Mapbox implementation
+- address database security issues (express mongo sanitize)
