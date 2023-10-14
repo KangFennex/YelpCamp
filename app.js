@@ -127,11 +127,6 @@ app.use((req, res, next) => {
   next();
 })
 
-app.get("/fakeUser", async (req, res) => {
-  const user = new User({ email: "mmarion@gmail.com", username: "kang1004" });
-  const newUser = await User.register(user, 'pokemon')
-})
-
 app.use("/", userRoutes)
 app.use("/campgrounds", campgroundRoutes)
 app.use("/campgrounds/:id/reviews", reviewRoutes)
@@ -150,6 +145,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render('error', { err });
 })
 
-app.listen(3001, () => {
-  console.log("Serving on port 3001");
-});
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Serving on port ${port}`)
+})
