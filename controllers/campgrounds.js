@@ -5,11 +5,13 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 // https://api.mapbox.com/geocoding/v5/{endpoint}/{search_text}.json
 
 
+// Load the campgrounds
 module.exports.index = async (req, res) => {
-    const campgrounds = await Campground.find({});
-    res.render('campgrounds/index', { campgrounds })
-}
+    const campgrounds = await Campground.find({}).populate([{ path: 'popupText', strictPopulate: false }]);
+    res.render('campgrounds/index', { campgrounds });
+};
 
+// Render the form for a new campground
 module.exports.renderNewForm = (req, res) => {
     res.render('campgrounds/new')
 }
@@ -36,8 +38,8 @@ module.exports.createCampground = async (req, res, next) => {
         req.flash('success', 'Successfully created a new campground');
         res.redirect(`/campgrounds/${campground._id}`)
     } catch (error) {
-        console.error(error);
         res.status(500).send("Internal Server Error");
+        console.error(error);
     }
 }
 
@@ -49,7 +51,7 @@ module.exports.showCampground = async (req, res) => {
             path: "author"
         }
     }).populate('author');
-    console.log(campground);
+
     if (!campground) {
         req.flash('error', 'Cannot find that campground!')
         return res.redirect('/campgrounds')
@@ -57,7 +59,7 @@ module.exports.showCampground = async (req, res) => {
     res.render('campgrounds/show', { campground })
 }
 
-//Render the edit form
+// Render the edit form
 module.exports.renderEditForm = async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findById(id);
