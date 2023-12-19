@@ -76,6 +76,7 @@ const scriptSrcUrls = [
   "https://cdn.jsdelivr.net",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css",
+  "https://code.jquery.com/jquery-3.6.0.min.js",
 ];
 const styleSrcUrls = [
   "https://kit-free.fontawesome.com/",
@@ -86,6 +87,7 @@ const styleSrcUrls = [
   "https://use.fontawesome.com/",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css",
+  "https://code.jquery.com/jquery-3.6.0.min.js",
 ];
 const connectSrcUrls = [
   "https://api.mapbox.com/",
@@ -94,6 +96,7 @@ const connectSrcUrls = [
   "https://events.mapbox.com/",
   "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
   "https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css",
+  "https://code.jquery.com/jquery-3.6.0.min.js",
 ];
 const fontSrcUrls = [];
 app.use(
